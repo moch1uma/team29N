@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Group29 App</title>
+  <link rel="stylesheet" href="app_css.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header>
+    <h1>Group29 App</h1>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main>
+    <!-- カレンダー -->
+    <section class="calendar-section">
+      <h2>カレンダー</h2>
+      <div id="calendar" class="calendar">
+        <!-- JavaScriptでカレンダーを生成 -->
+      </div>
+      <div id="task-manager">
+        <h3>タスク管理</h3>
+        <textarea id="task-text" placeholder="タスクを追加..."></textarea>
+        <button onclick="addTask()">タスク追加</button>
+        <ul id="task-list"></ul>
+      </div>
+    </section>
+
+    <!-- To Do リスト -->
+    <section class="todo-section">
+      <h2>To Do リスト</h2>
+      <ul id="todo-list" class="todo-list">
+        <!-- To Doリストの項目がここに追加されます -->
+      </ul>
+      <input type="text" id="todo-input" placeholder="新しいタスクを入力">
+      <button onclick="addTodo()">追加</button>
+    </section>
+
+    <!-- 投票ページ -->
+    <section class="voting-section">
+      <h2>意見の投票</h2>
+      <p>質問: このアプリの改善点は？</p>
+      <button onclick="vote('good')">良い</button>
+      <button onclick="vote('neutral')">普通</button>
+      <button onclick="vote('bad')">悪い</button>
+      <div id="results">
+        <p>良い: <span id="good-votes">0</span></p>
+        <p>普通: <span id="neutral-votes">0</span></p>
+        <p>悪い: <span id="bad-votes">0</span></p>
+      </div>
+    </section>
+
+    <!-- 瓶の図 -->
+    <section class="jar-section">
+      <h2>瓶の中のビー玉</h2>
+      <div class="jar">
+        <div class="marble"></div>
+        <div class="marble"></div>
+        <div class="marble"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
