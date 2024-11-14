@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="app_css.css">
 </head>
 <body>
-    <!-- メインページ -->
-    <div class="container" id="mainPage">
+    <div class="container">
         <div class="main-content">
+            <!-- カレンダーセクション -->
             <div class="card calendar">
                 <div class="card-header">
                     <h2>11月</h2>
@@ -26,6 +26,25 @@
                 </div>
             </div>
 
+            <!-- タスク管理セクション（初期状態では非表示） -->
+            <div class="card task-management hidden" id="taskManagement">
+                <div class="card-header">
+                    <h3>タスク管理</h3>
+                    <button class="edit-btn" onclick="editTasks()">編集</button>
+                </div>
+                <div class="task-list" id="taskList"></div>
+            </div>
+
+            <!-- 時間割表セクション（初期状態では非表示） -->
+            <div class="card timetable hidden" id="timetable">
+                <div class="card-header">
+                    <h3>みんなの時間割表</h3>
+                    <button class="edit-btn" onclick="editTimetable()">編集</button>
+                </div>
+                <div class="timetable-grid"></div>
+            </div>
+
+            <!-- ToDoリストセクション -->
             <div class="card todo-section">
                 <div class="card-header">
                     <h3>To Do</h3>
@@ -35,6 +54,7 @@
                 <button class="add-btn" onclick="addNewTodo()">+ 新規追加</button>
             </div>
 
+            <!-- 投票セクション -->
             <div class="card voting-section">
                 <div class="card-header">
                     <h3>投票</h3>
@@ -43,8 +63,10 @@
                 <div class="voting-container">
                     <div class="marble-jar">
                         <svg viewBox="0 0 200 250" class="jar-svg">
+                            <!-- 瓶の形 -->
                             <path d="M40 80 Q40 60 60 50 L140 50 Q160 60 160 80 L160 220 Q160 240 140 240 L60 240 Q40 240 40 220 Z" 
                                   class="jar-shape"/>
+                            <!-- ビー玉たち（動的に追加される） -->
                         </svg>
                     </div>
                     <div class="voting-options">
@@ -55,56 +77,6 @@
             </div>
         </div>
     </div>
-
-    <!-- 予定確認ページ -->
-    <div class="container hidden" id="schedulePage">
-        <div class="card schedule-viewer">
-            <div class="card-header">
-                <button class="back-btn" onclick="showMainPage()">←戻る</button>
-                <h2><span id="selectedDate"></span>の予定</h2>
-            </div>
-            
-            <div class="schedule-content">
-                <div class="schedule-section">
-                    <h3>みんなの予定</h3>
-                    <div class="schedule-list" id="scheduleList"></div>
-                    <button class="add-btn" onclick="addNewSchedule()">+ 予定を追加</button>
-                </div>
-
-                <div class="task-section">
-                    <h3>タスク管理</h3>
-                    <div class="task-list" id="taskList"></div>
-                    <button class="add-btn" onclick="addNewTask()">+ タスクを追加</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- モーダル -->
-    <div class="modal" id="taskModal">
-        <div class="modal-content">
-            <h3>タスクの追加/編集</h3>
-            <form id="taskForm">
-                <div class="form-group">
-                    <label>内容:</label>
-                    <input type="text" id="taskContent" required>
-                </div>
-                <div class="form-group">
-                    <label>担当者:</label>
-                    <input type="text" id="taskAssignee" required>
-                </div>
-                <div class="form-group">
-                    <label>期限:</label>
-                    <input type="date" id="taskDeadline">
-                </div>
-                <div class="button-group">
-                    <button type="submit" class="save-btn">保存</button>
-                    <button type="button" class="cancel-btn" onclick="closeTaskModal()">キャンセル</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
     <script src="app_script.js"></script>
 </body>
 </html>
