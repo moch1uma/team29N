@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group29 スケジュール管理アプリ</title>
+    <link rel="stylesheet" href="app_css.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <!-- カレンダーセクション -->
+            <div class="card calendar">
+                <div class="card-header">
+                    <h2>11月</h2>
+                    <button class="edit-btn" onclick="editCalendar()">編集</button>
+                </div>
+                <div class="calendar-grid">
+                    <div>月</div>
+                    <div>火</div>
+                    <div>水</div>
+                    <div>木</div>
+                    <div>金</div>
+                    <div>土</div>
+                    <div>日</div>
+                </div>
+            </div>
+
+            <!-- タスク管理セクション（初期状態では非表示） -->
+            <div class="card task-management hidden" id="taskManagement">
+                <div class="card-header">
+                    <h3>タスク管理</h3>
+                    <button class="edit-btn" onclick="editTasks()">編集</button>
+                </div>
+                <div class="task-list" id="taskList"></div>
+            </div>
+
+            <!-- 時間割表セクション（初期状態では非表示） -->
+            <div class="card timetable hidden" id="timetable">
+                <div class="card-header">
+                    <h3>みんなの時間割表</h3>
+                    <button class="edit-btn" onclick="editTimetable()">編集</button>
+                </div>
+                <div class="timetable-grid"></div>
+            </div>
+
+            <!-- ToDoリストセクション -->
+            <div class="card todo-section">
+                <div class="card-header">
+                    <h3>To Do</h3>
+                    <button class="edit-btn" onclick="editTodo()">編集</button>
+                </div>
+                <ul class="todo-list" id="todoList"></ul>
+                <button class="add-btn" onclick="addNewTodo()">+ 新規追加</button>
+            </div>
+
+            <!-- 投票セクション -->
+            <div class="card voting-section">
+                <div class="card-header">
+                    <h3>投票</h3>
+                    <button class="edit-btn" onclick="editVoting()">編集</button>
+                </div>
+                <div class="voting-container">
+                    <div class="marble-jar">
+                        <svg viewBox="0 0 200 250" class="jar-svg">
+                            <!-- 瓶の形 -->
+                            <path d="M40 80 Q40 60 60 50 L140 50 Q160 60 160 80 L160 220 Q160 240 140 240 L60 240 Q40 240 40 220 Z" 
+                                  class="jar-shape"/>
+                            <!-- ビー玉たち（動的に追加される） -->
+                        </svg>
+                    </div>
+                    <div class="voting-options">
+                        <button class="vote-btn" onclick="addMarble('option1')">選択肢1</button>
+                        <button class="vote-btn" onclick="addMarble('option2')">選択肢2</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app_script.js"></script>
+</body>
+</html>
