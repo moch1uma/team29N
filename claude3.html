@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="claude3.css">
+</head>
+<body>
+  <div class="calendar-container">
+    <div class="calendar-header">
+      <h2 style="margin: 0">11月</h2>
+      <button class="edit-button">編集</button>
+    </div>
+    
+    <div class="calendar-grid">
+      <div>月</div>
+      <div>火</div>
+      <div>水</div>
+      <div>木</div>
+      <div>金</div>
+      <div>土</div>
+      <div>日</div>
+      
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div class="date-cell">1</div>
+      <div class="date-cell">2</div>
+      <div class="date-cell">3</div>
+      
+      <div class="date-cell">4</div>
+      <div class="date-cell">5</div>
+      <div class="date-cell">6</div>
+      <div class="date-cell">7</div>
+      <div class="date-cell">8</div>
+      <div class="date-cell has-event">9</div>
+      <div class="date-cell">10</div>
+      
+      <div class="date-cell">11</div>
+      <div class="date-cell">12</div>
+      <div class="date-cell has-event">13</div>
+      <div class="date-cell">14</div>
+      <div class="date-cell">15</div>
+      <div class="date-cell">16</div>
+      <div class="date-cell has-event">17</div>
+      
+      <div class="date-cell">18</div>
+      <div class="date-cell">19</div>
+      <div class="date-cell">20</div>
+      <div class="date-cell">21</div>
+      <div class="date-cell">22</div>
+      <div class="date-cell">23</div>
+      <div class="date-cell">24</div>
+      
+      <div class="date-cell">25</div>
+      <div class="date-cell">26</div>
+      <div class="date-cell">27</div>
+      <div class="date-cell">28</div>
+      <div class="date-cell">29</div>
+      <div class="date-cell">30</div>
+      <div></div>
+    </div>
+  </div>
+  
+  <div class="todo-container">
+    <h3 class="todo-title">To Do</h3>
+    <div class="todo-input">
+      <input type="text" id="todoContent" placeholder="内容を入力" class="todo-input-field">
+      <input type="text" id="todoName" placeholder="名前を入力" class="todo-input-field">
+      <button id="addTodo" class="add-button">追加</button>
+    </div>
+    <div class="todo-list" id="todoList">
+      <!-- JavaScriptで動的に追加される -->
+    </div>
+  </div>
+
+  <div class="schedule-container">
+    <h3 class="schedule-title">今日の予定</h3>
+    <div class="timeline">
+      <div class="time-labels">
+        <div>10:00</div>
+        <div>12:00</div>
+        <div>14:00</div>
+        <div>16:00</div>
+        <div>18:00</div>
+        <div>20:00</div>
+        <div>22:00</div>
+      </div>
+      <div class="schedule-content" id="scheduleContent">
+        <!-- JavaScriptで動的に追加される -->
+      </div>
+    </div>
+  </div>
+
+  <script src="claude3.js"></script>
+</body>
+</html>

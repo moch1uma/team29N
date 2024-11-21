@@ -1,0 +1,173 @@
+body {
+  font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", sans-serif;
+  background: #fff8f0;
+  margin: 0;
+  padding: 20px;
+}
+
+.calendar-container {
+  background: #e6f3ff;
+  border-radius: 25px;
+  padding: 20px;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.edit-button {
+  background: #004466;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  border: 1px solid #999;
+}
+
+.calendar-grid > div {
+  padding: 5px;
+  text-align: center;
+  border-right: 1px solid #999;
+  border-bottom: 1px solid #999;
+}
+
+.calendar-grid > div:nth-child(7n) {
+  border-right: none;
+}
+
+.date-cell {
+  position: relative;
+  min-height: 30px;
+}
+
+.date-cell.has-event::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: #0066cc;
+  border-radius: 50%;
+}
+
+.todo-container {
+  background: #004466;
+  color: white;
+  border-radius: 25px;
+  padding: 20px;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.todo-title, .schedule-title {
+  margin-top: 0;
+}
+
+.todo-input {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.todo-input-field {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  flex: 1;
+}
+
+.add-button {
+  background: #e6f3ff;
+  color: #004466;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.todo-checkbox {
+  margin-right: 10px;
+  border: 2px solid white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.todo-checkbox.checked {
+  background-color: white;
+}
+
+.todo-text {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.todo-name {
+  color: #e6f3ff;
+  font-size: 0.9em;
+}
+
+.schedule-container {
+  background: #004466;
+  color: white;
+  border-radius: 25px;
+  padding: 20px;
+  max-width: 600px;
+}
+
+.timeline {
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+}
+
+.time-labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 20px;
+  min-width: 60px;
+}
+
+.schedule-content {
+  position: relative;
+  flex: 1;
+  min-height: 300px;
+  border-left: 2px solid white;
+}
+
+.schedule-event {
+  position: absolute;
+  left: 10px;
+  background: rgba(230, 243, 255, 0.9);
+  color: #004466;
+  padding: 5px;
+  border-radius: 5px;
+  width: calc(100% - 20px);
+}
