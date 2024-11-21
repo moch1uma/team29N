@@ -27,21 +27,64 @@ function addTodoItem(content, name) {
   const checkbox = todoItem.querySelector('.todo-checkbox');
   checkbox.addEventListener('click', function() {
     this.classList.toggle('checked');
+    todoItem.classList.toggle('checked');
   });
 }
 
-// 編集ボタンの制御
-document.querySelector('.edit-button').addEventListener('click', function() {
-  alert('編集機能は実装予定です');
-});
-
-// イベントのある日付のクリックイベント
-document.querySelectorAll('.date-cell.has-event').forEach(cell => {
+// カレンダーの日付選択
+document.querySelectorAll('.date-cell.selectable').forEach(cell => {
   cell.addEventListener('click', function() {
     const date = this.textContent;
-    alert(`${date}日のイベントです`);
+    const hasEvent = this.classList.contains('has-event');
+    
+    if (hasEvent) {
+      alert(`${date}日のイベントです`);
+    } else {
+      this.classList.toggle('has-event');
+      if (this.classList.contains('has-event')) {
+        alert(`${date}日にイベントを追加しました`);
+      } else {
+        alert(`${date}日のイベントを削除しました`);
+      }
+    }
   });
 });
+
+// 編集ボタンの制御
+document.querySelectorAll('.edit-button').forEach(button => {
+  button.addEventListener('click', function() {
+    if (this.classList.contains('schedule-edit')) {
+      editSchedule();
+    } else {
+      editCalendar();
+    }
+  });
+});
+
+function editCalendar() {
+  alert('カレンダーの編集機能は実装予定です');
+}
+
+function editSchedule() {
+  const scheduleContent = document.getElementById('scheduleContent');
+  if (!scheduleContent.querySelector('.schedule-event.editing')) {
+    // 編集モードを開始
+    const events = scheduleContent.querySelectorAll('.schedule-event');
+    events.forEach(event => {
+      event.classList.add('editing');
+      event.setAttribute('contenteditable', 'true');
+    });
+    alert('予定をクリックして編集できます。編集ボタンを再度クリックして完了します。');
+  } else {
+    // 編集モードを終了
+    const events = scheduleContent.querySelectorAll('.schedule-event');
+    events.forEach(event => {
+      event.classList.remove('editing');
+      event.removeAttribute('contenteditable');
+    });
+    alert('編集を完了しました');
+  }
+}
 
 // サンプルの予定を追加
 function addScheduleEvent(startTime, duration, title) {

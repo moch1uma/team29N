@@ -26,6 +26,12 @@ body {
   border: none;
   padding: 8px 16px;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.schedule-edit {
+  font-size: 0.9em;
+  padding: 6px 12px;
 }
 
 .calendar-grid {
@@ -51,6 +57,15 @@ body {
   min-height: 30px;
 }
 
+.date-cell.selectable {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.date-cell.selectable:hover {
+  background-color: #cce4ff;
+}
+
 .date-cell.has-event::after {
   content: "";
   position: absolute;
@@ -74,6 +89,7 @@ body {
 
 .todo-title, .schedule-title {
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 .todo-input {
@@ -123,6 +139,11 @@ body {
   background-color: white;
 }
 
+.todo-item.checked .todo-text {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
 .todo-text {
   flex: 1;
   margin-right: 10px;
@@ -139,6 +160,13 @@ body {
   border-radius: 25px;
   padding: 20px;
   max-width: 600px;
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .timeline {
@@ -170,4 +198,10 @@ body {
   padding: 5px;
   border-radius: 5px;
   width: calc(100% - 20px);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.schedule-event:hover {
+  background: rgba(230, 243, 255, 1);
 }
