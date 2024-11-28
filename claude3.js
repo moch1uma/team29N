@@ -57,9 +57,6 @@ document.querySelectorAll('.edit-button').forEach(button => {
   });
 });
 
-function editCalendar() {
-  alert('カレンダーの編集機能は実装予定です');
-}
 
 function editSchedule() {
   const scheduleContent = document.getElementById('scheduleContent');
