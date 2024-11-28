@@ -116,3 +116,171 @@ header h1 {
 .feature-box p {
     font-size: 14px;
 }
+
+.steps .step {
+    text-align: center;
+}
+
+.button-container {
+    margin: 30px 0;
+}
+
+.try-button {
+    display: inline-block;
+    background-color: #ff6584;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.try-button:hover {
+    background-color: #ff9aa2;
+}
+
+
+
+.how-to-use {
+    text-align: center; /* セクション全体の中央揃え */
+}
+
+.steps {
+    display: flex;
+    flex-direction: column; /* 手順を縦に並べる */
+    align-items: center; /* 横方向の中央揃え */
+    gap: 20px; /* 手順間の間隔を調整 */
+}
+
+.step {
+    display: flex;
+    flex-direction: column; /* 各手順内の画像とテキストを縦に並べる */
+    align-items: center; /* 画像とテキストを中央揃え */
+    text-align: center; /* テキストを中央揃え */
+}
+
+.step img {
+    max-width: 100%; /* 必要に応じて画像サイズを調整 */
+    height: auto;
+}
+
+.step p {
+    font-size: 25px;
+}
+
+.commitment {
+    padding: 50px;
+    background-color: #f9f9f9;
+}
+.commitment h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+.commitment ul {
+    list-style: none;
+    padding: 0;
+}
+.commitment ul li {
+    opacity: 0; /* 初期状態で非表示 */
+    transform: translateY(50px); /* 下から上に移動するアニメーション */
+    animation: fadeInUp 1s ease-out forwards; /* アニメーションを適用 */
+    animation-delay: var(--delay, 0s); /* 遅延を変数で制御 */
+    margin-bottom: 40px;
+}
+
+/* アニメーション定義 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* スクロール時にアニメーションをトリガー */
+.commitment ul li:nth-child(1) {
+    --delay: 0.2s;
+}
+.commitment ul li:nth-child(2) {
+    --delay: 0.4s;
+}
+
+.commitment ul li {
+    opacity: 0; /* 初期は非表示 */
+    transform: translateY(50px); /* 下から浮き上がる動き */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* スムーズな動き */
+}
+
+/* 表示時のスタイル */
+.commitment ul li.show {
+    opacity: 1;
+    transform: translateY(0); /* 元の位置に移動 */
+}
+
+/* セクション全体 */
+.cards {
+    padding: 40px 20px; /* セクション全体の余白 */
+    background-color: #f9f9f9; /* 背景色 */
+    text-align: center; /* タイトルとカードを中央揃え */
+}
+
+/* タイトル */
+.commitment-title {
+    font-size: 2em; /* タイトルのサイズ */
+    color: #333; /* テキストの色 */
+    margin: 0 auto 20px; /* 下に余白を追加 */
+    text-align: center; /* タイトルを中央揃え */
+    display: inline-block; /* 中央揃えのためのインラインブロック */
+}
+    
+
+/* カードのスタイル */
+.card {
+    background-color: #fff; /* カードの背景色 */
+    border: 1px solid #ddd; /* 枠線 */
+    border-radius: 10px; /* 角を丸くする */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 軽いシャドウ */
+    padding: 20px;
+    margin: 0 auto; /* 中央に揃える */
+    max-width: 300px; /* 最大幅を指定 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* ホバー時のアニメーション */
+}
+
+/* カード配置（グリッドレイアウト） */
+.cards {
+    display: grid; /* グリッドレイアウトを使用 */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* カードをレスポンシブに配置 */
+    gap: 20px; /* カード間のスペース */
+}
+
+/* カード内テキスト */
+.card h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* カードのホバー効果 */
+.card:hover {
+    transform: translateY(-10px); /* 少し浮き上がる */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* シャドウを強調 */
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 768px) {
+    .cards {
+        grid-template-columns: 1fr; /* スマホでは1列表示 */
+    }
+}
