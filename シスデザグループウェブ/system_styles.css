@@ -6,6 +6,7 @@ body {
     text-align: center;
     background-color: #D8F2F7;
     color: #464B50;
+    background-color: #d8f2f7;
 }
 
 /* header */
@@ -173,7 +174,7 @@ header h1 {
 
 .commitment {
     padding: 50px;
-    background-color: #f9f9f9;
+    background-color: #d8f2f7;
 }
 .commitment h2 {
     text-align: center;
@@ -227,14 +228,14 @@ header h1 {
 /* セクション全体 */
 .cards {
     padding: 40px 20px; /* セクション全体の余白 */
-    background-color: #f9f9f9; /* 背景色 */
+    background-color: #d8f2f7; /* 背景色 */
     text-align: center; /* タイトルとカードを中央揃え */
 }
 
 /* タイトル */
 .commitment-title {
     font-size: 2em; /* タイトルのサイズ */
-    color: #333; /* テキストの色 */
+    color: #464b50; /* テキストの色 */
     margin: 0 auto 20px; /* 下に余白を追加 */
     text-align: center; /* タイトルを中央揃え */
     display: inline-block; /* 中央揃えのためのインラインブロック */
@@ -263,7 +264,7 @@ header h1 {
 /* カード内テキスト */
 .card h3 {
     font-size: 1.5em;
-    color: #333;
+    color: #464b50;
     margin-bottom: 10px;
 }
 
