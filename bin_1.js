@@ -190,35 +190,22 @@ class MarbleOpinionSystem {
         const question = this.questions.find(q => q.id === questionId);
         const marbleCount = question.opinions.length;
     
+        // 行のインデックスを計算（0から始まる）
+        const rowIndex = Math.floor((marbleCount - 1) /  6);
+        
         // 現在の行を取得または作成
         let currentRow;
-        if (marbleCount <= 6) {
-            // 最初の6個は底に配置
-            if (!marblesContainer.querySelector('.marble-row')) {
-                currentRow = document.createElement('div');
-                currentRow.className = 'marble-row';
-                marblesContainer.appendChild(currentRow);
-            } else {
-                currentRow = marblesContainer.querySelector('.marble-row');
-            }
+        const existingRows = marblesContainer.querySelectorAll('.marble-row');
+        
+        if (existingRows.length <= rowIndex) {
+            // 新しい行が必要な場合
+            currentRow = document.createElement('div');
+            currentRow.className = 'marble-row';
+            // 一番下に新しい行を追加
+            marblesContainer.appendChild(currentRow);
         } else {
-            // 7個目以降は新しい行を作成（3個ずつ）
-            const rowIndex = Math.floor((marbleCount - 7) / 3);
-            const existingRows = marblesContainer.querySelectorAll('.marble-row');
-            
-            if (existingRows.length < rowIndex + 2) { // +2 は底の行を含むため
-                currentRow = document.createElement('div');
-                currentRow.className = 'marble-row';
-                marblesContainer.insertBefore(currentRow, marblesContainer.firstChild);
-            } else {
-                currentRow = existingRows[existingRows.length - 1];
-                if (currentRow.children.length >= 3) {
-                    // 現在の行が3個で満杯なら新しい行を作成
-                    currentRow = document.createElement('div');
-                    currentRow.className = 'marble-row';
-                    marblesContainer.insertBefore(currentRow, marblesContainer.firstChild);
-                }
-            }
+            // 既存の行を使用
+            currentRow = existingRows[existingRows.length - 1];
         }
     
         currentRow.appendChild(marble);
