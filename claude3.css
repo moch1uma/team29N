@@ -2,31 +2,34 @@ body {
   font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", sans-serif;
   background: #fff8f0;
   margin: 0;
-  padding: 20px;
+  padding: 10px;
 }
 
 .calendar-container {
   background: #e6f3ff;
-  border-radius: 25px;
-  padding: 20px;
-  max-width: 600px;
-  margin-bottom: 20px;
+  border-radius: 15px;
+  padding: 15px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto 15px;
+  box-sizing: border-box;
 }
 
 .calendar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .edit-button {
   background: #004466;
   color: white;
   border: none;
-  padding: 8px 16px;
+  padding: 6px 12px;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 14px;
 }
 
 .schedule-edit {
@@ -37,15 +40,16 @@ body {
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 10px;
+  gap: 5px;
   border: 1px solid #999;
 }
 
 .calendar-grid > div {
-  padding: 5px;
+  padding: 3px;
   text-align: center;
   border-right: 1px solid #999;
   border-bottom: 1px solid #999;
+  font-size: 14px;
 }
 
 .calendar-grid > div:nth-child(7n) {
@@ -54,7 +58,7 @@ body {
 
 .date-cell {
   position: relative;
-  min-height: 30px;
+  min-height: 25px;
 }
 
 .date-cell.selectable {
@@ -72,8 +76,8 @@ body {
   bottom: 2px;
   left: 50%;
   transform: translateX(-50%);
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   background: #0066cc;
   border-radius: 50%;
 }
@@ -81,28 +85,45 @@ body {
 .todo-container {
   background: #004466;
   color: white;
-  border-radius: 25px;
-  padding: 20px;
-  max-width: 600px;
-  margin-bottom: 20px;
+  border-radius: 15px;
+  padding: 15px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto 15px;
+  box-sizing: border-box;
 }
 
 .todo-title, .schedule-title {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
 }
 
+
+
 .todo-input {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   display: flex;
-  gap: 10px;
+  flex-direction: row; /* 横並びに変更 */
+  gap: 8px;
+  align-items: flex-start;
 }
 
 .todo-input-field {
   padding: 8px;
   border: none;
   border-radius: 5px;
-  flex: 1;
+  flex: 1; /* 残りのスペースを埋める */
+  min-width: 0; /* flexboxでの収縮を許可 */
+  box-sizing: border-box;
+}
+
+.todo-name-field {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  width: 80px; /* 名前フィールドの幅を固定 */
+  box-sizing: border-box;
 }
 
 .add-button {
@@ -112,7 +133,9 @@ body {
   padding: 8px 16px;
   border-radius: 5px;
   cursor: pointer;
+  white-space: nowrap; /* ボタンテキストの折り返しを防ぐ */
 }
+
 
 .todo-list {
   list-style: none;
@@ -122,14 +145,15 @@ body {
 .todo-item {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  padding: 8px 0;
+  font-size: 14px;
 }
 
 .todo-checkbox {
   margin-right: 10px;
   border: 2px solid white;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   cursor: pointer;
   flex-shrink: 0;
@@ -151,27 +175,30 @@ body {
 
 .todo-name {
   color: #e6f3ff;
-  font-size: 0.9em;
+  font-size: 12px;
 }
 
 .schedule-container {
   background: #004466;
   color: white;
-  border-radius: 25px;
-  padding: 20px;
-  max-width: 600px;
+  border-radius: 15px;
+  padding: 15px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .schedule-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .timeline {
   position: relative;
-  margin-top: 20px;
+  margin-top: 15px;
   display: flex;
 }
 
@@ -179,8 +206,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-right: 20px;
-  min-width: 60px;
+  padding-right: 10px;
+  min-width: 40px;
+  font-size: 12px;
 }
 
 .schedule-content {
@@ -192,14 +220,15 @@ body {
 
 .schedule-event {
   position: absolute;
-  left: 10px;
+  left: 5px;
   background: rgba(230, 243, 255, 0.9);
   color: #004466;
-  padding: 5px;
+  padding: 3px;
   border-radius: 5px;
-  width: calc(100% - 20px);
+  width: calc(100% - 10px);
   cursor: pointer;
   transition: background-color 0.2s;
+  font-size: 12px;
 }
 
 .schedule-event:hover {
