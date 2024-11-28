@@ -1,0 +1,118 @@
+/* 全体的なスタイル */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #e3c288;
+}
+
+/* header */
+header {
+    background-image: url('STORE12.jpg'); /* 画像のURLを指定 */
+    background-size: cover; /* 画像がヘッダー全体にフィット */
+    background-position: center; /* 画像を中央に配置 */
+    height: 300px; /* ヘッダーの高さ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* オーバーレイのために必要 */
+    color: white; /* テキストを白に */
+}
+
+/* オーバーレイ（画像の上に半透明の黒色を重ねる） */
+header::before {
+    content: ''; /* 空のコンテンツを追加 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明の黒色 */
+    z-index: 1; /* テキストがオーバーレイの上に来るように */
+}
+
+/* ヘッダー内のテキスト */
+header h1 {
+    position: relative; /* テキストをオーバーレイの上に配置 */
+    z-index: 2; /* テキストがオーバーレイの上に来るように */
+    font-size: 36px; /* フォントサイズを調整 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* テキストの視認性向上のための影 */
+}
+
+/* お勧めセクション */
+.recommend {
+    padding: 40px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.recommend h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.text-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    font-size: 18px;
+    align-items: stretch;
+    margin-top: 20px; /* 高さを揃えるために追加 */
+}
+
+.text-box {
+    background-color: white;
+    border: 1px solid #070707;
+    padding: 20px;
+    width: 45%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.text-box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.text-box p {
+    font-size: 14px;
+}
+
+/* 機能セクション */
+.features {
+    padding: 40px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.features h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.feature-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.feature-box {
+    background-color: rgb(248, 243, 243);
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 45%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.feature-box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.feature-box p {
+    font-size: 14px;
+}
