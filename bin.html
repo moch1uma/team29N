@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>意見投稿システム</title>
+  <link rel="stylesheet" href="bin.css">
+</head>
+<body>
+  <div class="container">
+    <h1>意見投稿システム</h1>
+    <div class="input-section">
+      <textarea id="opinionInput" placeholder="あなたの意見を入力してください"></textarea>
+      <button id="submitOpinion">投稿</button>
+    </div>
+
+    <div class="progress-section">
+      <div class="jar">
+        <div id="marbles"></div>
+      </div>
+      <p id="countDisplay">0 / 10</p>
+      <div class="progress-bar">
+        <div id="progress" style="width: 0;"></div>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <label for="maxMarbles">最大ビー玉数:</label>
+      <input type="number" id="maxMarbles" value="10" min="1">
+      <label for="revealTime">公開時間:</label>
+      <input type="datetime-local" id="revealTime">
+    </div>
+
+    <div class="opinions-section hidden">
+      <h2>公開された意見</h2>
+      <ul id="opinionList"></ul>
+    </div>
+  </div>
+  <script src="bin.js"></script>
+</body>
+</html>
