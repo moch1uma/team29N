@@ -1,0 +1,199 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #edeff0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.date {
+    margin-right: 20px;
+}
+
+.schedule-container {
+    display: flex;
+    border: 1px solid #464B50;
+}
+
+.icon-column {
+    width: 80px;
+    border-right: 1px solid #464B50;
+}
+
+.timeline-container {
+    flex-grow: 1;
+}
+
+.time-header {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    height: 37px;
+    border-bottom: 1px solid #464B50;
+    text-align: center;
+    line-height: 37px;
+}
+
+.header-spacer {
+    height: 37px;
+    border-bottom: 1px solid #464B50;
+}
+
+.row {
+    display: flex;
+    height: 80px;
+    border-bottom: 1px solid #464B50;
+}
+
+.icon {
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #464B50;
+}
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    background-color: #71C1F2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #464B50;
+    font-size: 12px;
+    text-align: center;
+}
+
+.timeline {
+    flex-grow: 1;
+    position: relative;
+}
+
+.event {
+    position: absolute;
+    height: 50px;
+    top: 15px;
+    border-radius: 5px;
+    padding: 5px;
+    color: #464B50;
+    font-size: 12px;
+    background-color: #B8CFFF;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.event:hover {
+    opacity: 0.8;
+}
+
+.highlight1 {
+    position: absolute;
+    height: 100%;
+    background-color: rgba(250, 236, 133, 0.6);
+    z-index: 0;
+}
+
+.highlight2 {
+    position: absolute;
+    height: 100%;
+    background-color: rgba(253, 243, 167, 0.6);
+    z-index: 0;
+}
+
+.highlight3 {
+    position: absolute;
+    height: 100%;
+    background-color: rgba(243, 222, 63, 0.6);
+    z-index: 0;
+}
+
+.events-layer {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+}
+
+/* 共通予定エリアのスタイル */
+.common-schedule {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #D8F2F7;
+}
+
+.common-schedule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #464B50;
+}
+
+.common-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.add-common-btn {
+    padding: 5px 15px;
+    background-color: #71C1F2;
+    color: #464B50;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-common-btn:hover {
+    background-color: #464B50;
+}
+
+.common-timeline {
+    padding: 10px;
+}
+
+.common-events-container {
+    height: 80px;
+    position: relative;
+    border: 1px solid #D8F2F7;
+    background-color: #f4f6f6;
+}
+
+.common-event {
+    background-color: #B8CFFF;
+}
+
+/* 既存のtime-headerのスタイルを調整 */
+.time-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    height: 30px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    line-height: 30px;
+    background-color: #f8f9fa;
+}
+
+/* タイムラインの時間表示のグリッド調整 */
+.time-header {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    height: 37px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    line-height: 37px;
+}
+
+/* イベントレイヤーの配置調整 */
+.events-layer {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
