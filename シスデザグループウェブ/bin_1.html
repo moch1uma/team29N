@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bin_1.css">
+    
+   
+
+    <title>意見箱</title>
+ </head>
+ <body>
+    <div class="container">
+        <h1>意見箱</h1>
+        
+        <!-- 質問追加フォーム -->
+        <div class="question-form">
+            <input type="text" id="questionTitle" placeholder="質問のタイトルを入力">
+            <button id="addQuestion">質問を追加</button>
+        </div>
+
+        <!-- 質問タブ -->
+        <div class="question-tabs" id="questionTabs"></div>
+
+        <!-- 質問コンテンツのテンプレート -->
+        <template id="questionTemplate">
+            <div class="question-content">
+                <div class="input-section">
+                    <textarea class="opinion-input" placeholder="意見を入力してください"></textarea>
+                    <button class="submit-btn">投稿</button>
+                </div>
+
+                <div class="progress-section">
+                    <div class="jar">
+                        <div class="marbles"></div>
+                    </div>
+                    <span class="count-display" >0 / 10</span>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h2>意見は設定した時間になると公開されます</h2>
+                    <input type="datetime-local" class="reveal-time">
+                </div>
+
+                <div class="opinions-section hidden">
+                    <h2>公開された意見</h2>
+                    <ul class="opinions-list"></ul>
+                </div>
+            </div>
+        </template>
+
+        <!-- アクティブな質問のコンテンツ表示エリア -->
+        <div id="activeQuestionContent"></div>
+    </div>
+
+    <script src="bin_1.js"></script>
+</body>
+</html>
+
