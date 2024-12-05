@@ -1,3 +1,4 @@
+/* ベースのスタイル */
 body {
   font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", sans-serif;
   background: #fff8f0;
@@ -5,6 +6,7 @@ body {
   padding: 10px;
 }
 
+/* カレンダーコンテナ */
 .calendar-container {
   background: #e6f3ff;
   border-radius: 15px;
@@ -32,11 +34,7 @@ body {
   font-size: 14px;
 }
 
-.schedule-edit {
-  font-size: 0.9em;
-  padding: 6px 12px;
-}
-
+/* カレンダーグリッド */
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -82,6 +80,7 @@ body {
   border-radius: 50%;
 }
 
+/* TODOコンテナ */
 .todo-container {
   background: #004466;
   color: white;
@@ -99,12 +98,10 @@ body {
   font-size: 16px;
 }
 
-
-
 .todo-input {
   margin-bottom: 15px;
   display: flex;
-  flex-direction: row; /* 横並びに変更 */
+  flex-direction: row;
   gap: 8px;
   align-items: flex-start;
 }
@@ -113,8 +110,8 @@ body {
   padding: 8px;
   border: none;
   border-radius: 5px;
-  flex: 1; /* 残りのスペースを埋める */
-  min-width: 0; /* flexboxでの収縮を許可 */
+  flex: 1;
+  min-width: 0;
   box-sizing: border-box;
 }
 
@@ -122,7 +119,7 @@ body {
   padding: 8px;
   border: none;
   border-radius: 5px;
-  width: 80px; /* 名前フィールドの幅を固定 */
+  width: 80px;
   box-sizing: border-box;
 }
 
@@ -133,9 +130,8 @@ body {
   padding: 8px 16px;
   border-radius: 5px;
   cursor: pointer;
-  white-space: nowrap; /* ボタンテキストの折り返しを防ぐ */
+  white-space: nowrap;
 }
-
 
 .todo-list {
   list-style: none;
@@ -178,6 +174,7 @@ body {
   font-size: 12px;
 }
 
+/* スケジュールコンテナ */
 .schedule-container {
   background: #004466;
   color: white;
@@ -193,9 +190,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-bottom: 15px;
 }
 
+/* タイムライン */
 .timeline {
   position: relative;
   margin-top: 15px;
@@ -218,6 +218,7 @@ body {
   border-left: 2px solid white;
 }
 
+/* スケジュールイベント */
 .schedule-event {
   position: absolute;
   left: 5px;
@@ -226,11 +227,94 @@ body {
   padding: 3px;
   border-radius: 5px;
   width: calc(100% - 10px);
+  box-sizing: border-box;
   cursor: pointer;
   transition: background-color 0.2s;
   font-size: 12px;
+  user-select: none;
 }
 
 .schedule-event:hover {
   background: rgba(230, 243, 255, 1);
+}
+
+.schedule-event.editing {
+  cursor: pointer;
+  outline: 1px solid #e6f3ff;
+}
+
+.schedule-event.editing:hover {
+  background: rgba(230, 243, 255, 1);
+}
+
+/* スケジュールフォーム */
+.schedule-form {
+  margin: 10px 0;
+  padding: 10px;
+  background: rgba(230, 243, 255, 0.1);
+  border-radius: 5px;
+  display: none; /* 初期状態は非表示 */
+}
+
+.schedule-form input {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.schedule-form input[type="time"] {
+  width: 100px;
+}
+
+.schedule-form input[type="number"] {
+  width: 80px;
+}
+
+.schedule-form input[type="text"] {
+  flex: 1;
+  min-width: 150px;
+
+}
+
+.schedule-form button,
+.add-schedule-btn {
+  background: #e6f3ff;
+  color: #004466;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.schedule-form button:hover,
+.add-schedule-btn:hover {
+  background: #cce4ff;
+}
+
+
+
+
+.schedule-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+
+
+.schedule-form {
+  margin: 10px 0;
+  padding: 10px;
+  background: rgba(230, 243, 255, 0.1);
+  border-radius: 5px;
+  display: none; /* 初期状態は非表示 */
+}
+
+.schedule-form.visible {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
 }

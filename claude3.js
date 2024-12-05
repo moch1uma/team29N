@@ -1,103 +1,162 @@
 // カレンダーの日付選択
-document.querySelectorAll('.date-cell.selectable').forEach(cell => {
-  cell.addEventListener('click', function() {
-    const date = this.textContent;
-    const hasEvent = this.classList.contains('has-event');
-    
-    if (hasEvent) {
-      alert(`${date}日のイベントです`);
-    } else {
-      // イベントがない場合は「イベントなし」と表示するだけ
-      alert(`${date}日のイベントはありません`);
-    }
-  });
-});
+class CalendarManager {
+  constructor() {
+      this.initializeCalendar();
+  }
 
-// その他のコードは変更なし...
+  initializeCalendar() {
+      document.querySelectorAll('.date-cell.selectable').forEach(cell => {
+          cell.addEventListener('click', (e) => {
+              const date = e.target.textContent;
+              const hasEvent = e.target.classList.contains('has-event');
+              
+              if (hasEvent) {
+                  alert(`${date}日のイベントです`);
+              } else {
+                  alert(`${date}日のイベントはありません`);
+              }
+          });
+      });
+  }
+}
+
 // TODOリストの管理
-document.getElementById('addTodo').addEventListener('click', function() {
-  const content = document.getElementById('todoContent').value;
-  const name = document.getElementById('todoName').value;
-  
-  if (content && name) {
-    addTodoItem(content, name);
-    document.getElementById('todoContent').value = '';
-    document.getElementById('todoName').value = '';
+class TodoManager {
+  constructor() {
+      this.initializeTodo();
   }
-});
 
-function addTodoItem(content, name) {
-  const todoList = document.getElementById('todoList');
-  const todoItem = document.createElement('div');
-  todoItem.className = 'todo-item';
-  
-  todoItem.innerHTML = `
-    <div class="todo-checkbox"></div>
-    <span class="todo-text">${content}</span>
-    <span class="todo-name">${name}</span>
-  `;
-  
-  todoList.appendChild(todoItem);
-  
-  const checkbox = todoItem.querySelector('.todo-checkbox');
-  checkbox.addEventListener('click', function() {
-    this.classList.toggle('checked');
-    todoItem.classList.toggle('checked');
-  });
-}
+  initializeTodo() {
+      document.getElementById('addTodo').addEventListener('click', () => {
+          const content = document.getElementById('todoContent').value;
+          const name = document.getElementById('todoName').value;
+          
+          if (content && name) {
+              this.addTodoItem(content, name);
+              document.getElementById('todoContent').value = '';
+              document.getElementById('todoName').value = '';
+          }
+      });
+  }
 
-// 編集ボタンの制御
-document.querySelectorAll('.edit-button').forEach(button => {
-  button.addEventListener('click', function() {
-    if (this.classList.contains('schedule-edit')) {
-      editSchedule();
-    } else {
-      editCalendar();
-    }
-  });
-});
-
-
-function editSchedule() {
-  const scheduleContent = document.getElementById('scheduleContent');
-  if (!scheduleContent.querySelector('.schedule-event.editing')) {
-    // 編集モードを開始
-    const events = scheduleContent.querySelectorAll('.schedule-event');
-    events.forEach(event => {
-      event.classList.add('editing');
-      event.setAttribute('contenteditable', 'true');
-    });
-    alert('予定をクリックして編集できます。編集ボタンを再度クリックして完了します。');
-  } else {
-    // 編集モードを終了
-    const events = scheduleContent.querySelectorAll('.schedule-event');
-    events.forEach(event => {
-      event.classList.remove('editing');
-      event.removeAttribute('contenteditable');
-    });
-    alert('編集を完了しました');
+  addTodoItem(content, name) {
+      const todoList = document.getElementById('todoList');
+      const todoItem = document.createElement('div');
+      todoItem.className = 'todo-item';
+      
+      todoItem.innerHTML = `
+          <div class="todo-checkbox"></div>
+          <span class="todo-text">${content}</span>
+          <span class="todo-name">${name}</span>
+      `;
+      
+      todoList.appendChild(todoItem);
+      
+      const checkbox = todoItem.querySelector('.todo-checkbox');
+      checkbox.addEventListener('click', function() {
+          this.classList.toggle('checked');
+          todoItem.classList.toggle('checked');
+      });
   }
 }
 
-function addScheduleEvent(startTime, duration, title) {
-  const scheduleContent = document.getElementById('scheduleContent');
-  const event = document.createElement('div');
-  event.className = 'schedule-event';
+class ScheduleManager {
+  constructor() {
+      this.initializeSchedule();
+      this.setupEventListeners();
+      this.isEditing = false;
+  }
+
+  initializeSchedule() {
+      this.scheduleContent = document.getElementById('scheduleContent');
+      this.editButton = document.querySelector('.schedule-edit');
+      this.scheduleForm = document.querySelector('.schedule-form');
+      this.addButton = document.querySelector('.add-schedule-btn');
+  }
+
+  setupEventListeners() {
+      // 編集ボタン
+      if (this.editButton) {
+          this.editButton.addEventListener('click', () => this.handleEditClick());
+      }
+
+      // 予定追加ボタン
+      if (this.addButton) {
+          this.addButton.addEventListener('click', () => this.toggleAddEventForm());
+      }
+
+      // フォームの送信とキャンセル
+      const addEventBtn = document.getElementById('addEventBtn');
+      const cancelEventBtn = document.getElementById('cancelEventBtn');
+      if (addEventBtn && cancelEventBtn) {
+          addEventBtn.addEventListener('click', () => this.handleAddEventSubmit());
+          cancelEventBtn.addEventListener('click', () => this.hideAddEventForm());
+      }
+
+      // 既存の予定のクリック
+      this.scheduleContent.addEventListener('click', (e) => {
+          if (e.target.classList.contains('schedule-event') && this.isEditing) {
+              this.handleEventClick(e.target);
+          }
+      });
+  }
+
+  toggleAddEventForm() {
+      if (this.scheduleForm.style.display === 'none') {
+          this.scheduleForm.style.display = 'flex';
+      } else {
+          this.scheduleForm.style.display = 'none';
+      }
+  }
+
+  hideAddEventForm() {
+      this.scheduleForm.style.display = 'none';
+      // フォームをリセット
+      document.getElementById('eventStartTime').value = '';
+      document.getElementById('eventDuration').value = '';
+      document.getElementById('eventTitle').value = '';
+  }
+
+
+
+  handleAddEventSubmit() {
+      const startTime = document.getElementById('eventStartTime').value;
+      const duration = document.getElementById('eventDuration').value;
+      const title = document.getElementById('eventTitle').value;
+
+      if (startTime && duration && title) {
+          // 時間の検証
+          const [hours] = startTime.split(':').map(Number);
+          if (hours < 10 || hours > 24) {
+              alert('開始時間は10:00から24:00の間で設定してください。');
+              return;
+          }
+
+          // 長さの検証
+          const durationNum = parseFloat(duration);
+          if (durationNum < 0.5 || durationNum > 14) {
+              alert('予定の長さは0.5から14時間の間で設定してください。');
+              return;
+          }
+
+          this.addScheduleEvent(startTime, durationNum, title);
+          this.hideAddEventForm();
+      } else {
+          alert('すべての項目を入力してください。');
+      }
+  }
+
   
-  // 位置とサイズを計算（9:00-24:00の15時間を100%とする）
-  const startHour = parseInt(startTime.split(':')[0]);
-  const startMinute = parseInt(startTime.split(':')[1]);
-  const top = ((startHour - 9.5) + startMinute / 60) * (100 / 15);
-  const height = duration * (100 / 15); // durationは時間単位
-  
-  event.style.top = `${top}%`;
-  event.style.height = `${height}%`;
-  event.textContent = title;
-  
-  scheduleContent.appendChild(event);
+
+
 }
 
-// サンプルの予定を追加
-addScheduleEvent('9:00', 3, '授業');
-addScheduleEvent('17:00', 4, 'バイト');
-addScheduleEvent('22:00', 1, 'GW');
+// アプリケーションの初期化
+document.addEventListener('DOMContentLoaded', () => {
+  window.calendarManager = new CalendarManager();
+  window.todoManager = new TodoManager();
+  window.scheduleManager = new ScheduleManager();
+  
+  // サンプルの予定を追加（必要な場合）
+  // window.scheduleManager.addInitialEvents();
+});

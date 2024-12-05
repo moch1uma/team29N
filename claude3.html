@@ -75,30 +75,40 @@
       <!-- JavaScriptで動的に追加される -->
     </div>
   </div>
-
-
   
   <div class="schedule-container">
     <div class="schedule-header">
-      <h3 class="schedule-title">今日の予定</h3>
-      <button class="edit-button schedule-edit">編集</button>
+        <h3 class="schedule-title">今日の予定</h3>
+        <div class="schedule-controls">
+            <button class="add-schedule-btn">予定を追加</button>
+        </div>
     </div>
+
+    <!-- 予定追加フォーム -->
+    <div class="schedule-form" style="display: none;">
+        <input type="time" id="eventStartTime" min="10:00" max="24:00" required>
+        <input type="number" id="eventDuration" placeholder="時間(h)" min="0.5" max="14" step="0.5" required>
+        <input type="text" id="eventTitle" placeholder="予定の内容" required>
+        <button id="addEventBtn">追加</button>
+        <button id="cancelEventBtn">キャンセル</button>
+    </div>
+
     <div class="timeline">
-      <div class="time-labels">
-        <div>10:00</div>
-        <div>12:00</div>
-        <div>14:00</div>
-        <div>16:00</div>
-        <div>18:00</div>
-        <div>20:00</div>
-        <div>22:00</div>
-        <div>24:00</div>
-      </div>
-      <div class="schedule-content" id="scheduleContent">
-        <!-- JavaScriptで動的に追加される -->
-      </div>
+        <div class="time-labels">
+            <div>10:00</div>
+            <div>12:00</div>
+            <div>14:00</div>
+            <div>16:00</div>
+            <div>18:00</div>
+            <div>20:00</div>
+            <div>22:00</div>
+            <div>24:00</div>
+        </div>
+        <div id="scheduleContent" class="schedule-content">
+            <!-- 予定がここに追加されます -->
+        </div>
     </div>
-  </div>
+ </div>
 
   <script src="claude3.js"></script>
 </body>
