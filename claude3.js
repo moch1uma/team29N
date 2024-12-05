@@ -146,7 +146,52 @@ class ScheduleManager {
       }
   }
 
-  
+  handleEditClick() {
+      this.isEditing = !this.isEditing;
+      const events = this.scheduleContent.querySelectorAll('.schedule-event');
+
+      if (this.isEditing) {
+          events.forEach(event => {
+              event.classList.add('editing');
+          });
+          this.editButton.textContent = '編集を完了';
+      } else {
+          events.forEach(event => {
+              event.classList.remove('editing');
+          });
+          this.editButton.textContent = '編集';
+      }
+  }
+
+  handleEventClick(event) {
+      const title = event.textContent;
+      const newTitle = prompt('予定の内容を編集:', title);
+      if (newTitle !== null && newTitle.trim() !== '') {
+          event.textContent = newTitle;
+      }
+  }
+
+  addScheduleEvent(startTime, duration, title) {
+      const event = document.createElement('div');
+      event.className = 'schedule-event';
+      
+      // 位置とサイズを計算
+      const [hours, minutes] = startTime.split(':').map(Number);
+      const top = ((hours - 10) + minutes / 60) * (100 / 14); // 14時間（10:00-24:00）
+      const height = duration * (100 / 14);
+      
+      // 位置が範囲外にならないように調整
+      if (top < 0 || top > 100 || top + height > 100) {
+          alert('指定された時間が表示範囲外です。');
+          return;
+      }
+      
+      event.style.top = `${top}%`;
+      event.style.height = `${height}%`;
+      event.textContent = title;
+      
+      this.scheduleContent.appendChild(event);
+  }
 
 
 }
