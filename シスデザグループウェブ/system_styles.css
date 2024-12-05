@@ -318,22 +318,29 @@ header h1 {
 
 /* カード配置（グリッドレイアウト） */
 .cards {
-    display: grid; /* グリッドレイアウトを使用 */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* カードをレスポンシブに配置 */
-    gap: 20px; /* カード間のスペース */
+      background-color: #fff;
+    border: 1px solid #ddd; /* 枠線を薄くして目立たないように */
+    border-radius: 8px; /* 角を丸くする */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 軽いシャドウ */
+    padding: 15px; /* 余白を少し小さく */
+    width: 30%; /* カードの幅を30%にして3つ並べる */
+    text-align: center;
+    font-size: 18px; /* 文字サイズを小さくして、バランスよく */
+    margin-bottom: 20px; /* 下に余白を追加 */
 }
 
 /* カード内テキスト */
 .card h3 {
-    font-size: 1.5em;
+    font-size: 20px;
     color: #464b50;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .card p {
-    font-size: 1em;
+    font-size: 0.9em; /* 段落の文字サイズをさらに小さく */
     color: #555;
     line-height: 1.6;
+    margin-bottom: 0; /* 段落の下の余白を少なく */
 }
 
 /* カードのホバー効果 */
