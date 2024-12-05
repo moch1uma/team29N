@@ -112,3 +112,48 @@
     </main>
 </body>
 </html>
+
+ <script>
+        // ページのロード後、スクロールイベントを設定
+        window.addEventListener('scroll', function() {
+            // recommend セクションの各テキストボックス
+            const recommendItems = document.querySelectorAll('.recommend .text-box');
+            recommendItems.forEach(function(item) {
+                if (isInViewport(item)) {
+                    item.classList.add('show');
+                }
+            });
+    
+            // features セクションの各機能ボックス
+            const featureItems = document.querySelectorAll('.features .feature-box');
+            featureItems.forEach(function(item) {
+                if (isInViewport(item)) {
+                    item.classList.add('show');
+                }
+            });
+        });
+    
+        // 要素がビューポートに表示されているかを確認する関数
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+    
+        // ページ読み込み時に最初の要素に show クラスを追加しておく
+        document.addEventListener('DOMContentLoaded', function() {
+            const recommendItems = document.querySelectorAll('.recommend .text-box');
+            recommendItems.forEach(function(item) {
+                item.classList.add('show');
+            });
+    
+            const featureItems = document.querySelectorAll('.features .feature-box');
+            featureItems.forEach(function(item) {
+                item.classList.add('show');
+            });
+        });
+    </script>
