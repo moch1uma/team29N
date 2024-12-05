@@ -288,37 +288,35 @@ header h1 {
 }
 
 /* セクション全体 */
+/* カード全体のスタイル */
 .cards {
-    padding: 40px 20px; /* セクション全体の余白 */
-    background-color: #d8f2f7; /* 背景色 */
-    text-align: center; /* タイトルとカードを中央揃え */
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* カード間の余白 */
+    flex-wrap: wrap; /* 必要に応じてカードが折り返される */
+    margin-right: 20px;
+    margin-left: 20px;
 }
 
 /* タイトル */
 .commitment-title {
-    font-size: 2em; /* タイトルのサイズ */
-    color: #464b50; /* テキストの色 */
-    margin: 0 auto 20px; /* 下に余白を追加 */
-    text-align: center; /* タイトルを中央揃え */
-    display: inline-block; /* 中央揃えのためのインラインブロック */
+    font-size: 18px; /* タイトルのサイズを少し小さく */
+    color: #464b50;
+    margin: 0 auto 20px;
+    text-align: center;
+    display: inline-block;
 }
-    
+
+/* カードの親要素 */
+.cardtachi {
+    display: flex; /* 横並びにする */
+    justify-content: space-between; /* カード間のスペースを均等に */
+    gap: 20px; /* カード間に20pxの余白 */
+}
 
 /* カードのスタイル */
 .card {
-    background-color: #fff; /* カードの背景色 */
-    border: 1px solid #ddd; /* 枠線 */
-    border-radius: 10px; /* 角を丸くする */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 軽いシャドウ */
-    padding: 20px;
-    margin: 0 auto; /* 中央に揃える */
-    max-width: 300px; /* 最大幅を指定 */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* ホバー時のアニメーション */
-}
-
-/* カード配置（グリッドレイアウト） */
-.cards {
-      background-color: #fff;
+    background-color: #fff;
     border: 1px solid #ddd; /* 枠線を薄くして目立たないように */
     border-radius: 8px; /* 角を丸くする */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 軽いシャドウ */
@@ -329,20 +327,20 @@ header h1 {
     margin-bottom: 20px; /* 下に余白を追加 */
 }
 
-/* カード内テキスト */
+/* カード内の見出し */
 .card h3 {
-    font-size: 20px;
+    font-size: 20px; /* 見出しの文字サイズを少し小さく */
     color: #464b50;
-    margin-bottom: 15px;
+    margin-bottom: 15px; /* 見出しの下に余白 */
 }
 
+/* カード内の段落 */
 .card p {
     font-size: 0.9em; /* 段落の文字サイズをさらに小さく */
     color: #555;
     line-height: 1.6;
     margin-bottom: 0; /* 段落の下の余白を少なく */
 }
-
 /* カードのホバー効果 */
 .card:hover {
     transform: translateY(-10px); /* 少し浮き上がる */
@@ -361,3 +359,4 @@ header h1 {
     opacity: 1; /* 完全に不透明 */
     transform: translateY(0); /* 元の位置に戻る */
 }
+
