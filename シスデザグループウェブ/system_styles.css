@@ -142,32 +142,90 @@ header h1 {
 }
 
 
-
+/* セクション全体のスタイル */
 .how-to-use {
-    text-align: center; /* セクション全体の中央揃え */
+    padding: 40px 140px;
+    background: linear-gradient(135deg, #71C1F2, #d8f2f7); /* グラデーション背景 */
+    text-align: center; 
 }
 
+/* タイトルのスタイル */
+.how-to-use h2 {
+    font-size: 2.5em; 
+    font-weight: bold; 
+    color: #464b50; /* 落ち着いた色合い */
+    margin-bottom: 30px; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* ソフトな影 */
+}
+
+/* スクロール用の親コンテナ */
 .steps {
-    display: flex;
-    flex-direction: column; /* 手順を縦に並べる */
-    align-items: center; /* 横方向の中央揃え */
-    gap: 20px; /* 手順間の間隔を調整 */
+    display: flex; 
+    overflow-x: auto; 
+    gap: 30px; 
+    padding: 10px 0;
+    scroll-snap-type: x mandatory; 
+    -webkit-overflow-scrolling: touch; 
 }
 
+/* ステップカードのスタイル */
 .step {
-    display: flex;
-    flex-direction: column; /* 各手順内の画像とテキストを縦に並べる */
-    align-items: center; /* 画像とテキストを中央揃え */
-    text-align: center; /* テキストを中央揃え */
+    flex: 0 0 auto; 
+    width: 450px;
+    height: 350PX; 
+    background: #ffffff; /* 白いカード */
+    border: 1px solid rgba(0, 0, 0, 0.1); 
+    border-radius: 15px; /* 角を丸く */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05); /* 立体感のある影 */
+    text-align: center; 
+    padding: 20px; 
+    scroll-snap-align: center; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* ホバー時のアニメーション */
 }
 
-.step img {
-    max-width: 100%; /* 必要に応じて画像サイズを調整 */
-    height: auto;
+
+/* ホバー時のアニメーション効果 */
+.step:hover {
+    transform: translateY(-10px); /* 浮き上がる */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* 影を強調 */
 }
 
+/* ステップ内のテキスト */
 .step p {
-    font-size: 25px;
+    font-size: 2.0em; 
+    color: #464b50; 
+    margin-bottom: 15px; 
+    font-weight: 600; /* 太字で目立たせる */
+}
+
+/* ステップ内の画像 */
+.step img {
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 10px; /* 画像の角を丸く */
+    margin-bottom: 10px; /* 画像とテキストの間に余白 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影を追加 */
+    transition: transform 0.3s ease; /* アニメーション効果 */
+}
+
+/* 画像ホバー時のアニメーション */
+.step img:hover {
+    transform: scale(1.05); /* 少し拡大 */
+}
+
+/* スクロールバーのカスタマイズ */
+.steps::-webkit-scrollbar {
+    height: 8px; 
+}
+
+.steps::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05); /* スクロールバーの背景 */
+    border-radius: 10px;
+}
+
+.steps::-webkit-scrollbar-thumb {
+    background: rgba(44, 62, 80, 0.8); /* スクロールバーの色 */
+    border-radius: 10px;
 }
 
 .commitment {
