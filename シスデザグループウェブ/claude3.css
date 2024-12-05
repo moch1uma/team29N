@@ -1,0 +1,372 @@
+
+
+/* ベースのスタイル */
+body {
+  font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", sans-serif;
+  background: #edeff0;
+  margin: 0;
+  padding: 20px; /* 全体の余白を増やす */
+}
+
+/* コンテナ共通のマージン設定 */
+.calendar-container,
+.todo-container,
+.schedule-container {
+  margin: 0 auto 25px; /* 下マージンを増やす */
+  padding: 20px; /* 内側の余白を増やす */
+  max-width: 1200px; /* 最大幅を設定 */
+}
+
+/* カレンダーグリッドの余白 */
+.calendar-grid {
+  margin: 15px 0; /* 上下の余白を追加 */
+  padding: 10px; /* グリッド内の余白を追加 */
+}
+
+/* TODOリストの余白 */
+.todo-list {
+  margin: 15px 0; /* 上下の余白を追加 */
+  padding: 0 10px; /* 左右の余白を追加 */
+}
+
+/* スケジュールタイムラインの余白 */
+.timeline {
+  margin: 20px 0; /* 上下の余白を増やす */
+  padding: 0 10px; /* 左右の余白を追加 */
+}
+
+/* 時間ラベルの余白 */
+.time-labels {
+  padding-right: 15px; /* 右の余白を増やす */
+}
+
+/* スケジュールイベントの余白 */
+.schedule-event {
+  padding: 5px 8px; /* イベント内の余白を増やす */
+}
+
+/* フォームの余白 */
+.schedule-form {
+  margin: 15px 0;
+  padding: 15px;
+}
+
+/* ヘッダーの余白 */
+.calendar-header,
+.schedule-header {
+  margin-bottom: 20px;
+  padding: 0 5px;
+}
+
+/* カレンダーコンテナ */
+.calendar-container {
+  background: #D8f2f7;
+  border-radius: 15px;
+  padding: 15px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto 15px;
+  box-sizing: border-box;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.edit-button {
+  background: #71c1f2;
+  color: #464B50;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* カレンダーグリッド */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  border: 1px solid #464B50;
+}
+
+.calendar-grid > div {
+  padding: 3px;
+  text-align: center;
+  border-right: 1px solid #464B50;
+  border-bottom: 1px solid #464B50;
+  font-size: 14px;
+}
+
+.calendar-grid > div:nth-child(7n) {
+  border-right: none;
+}
+
+.date-cell {
+  position: relative;
+  min-height: 25px;
+}
+
+.date-cell.selectable {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.date-cell.selectable:hover {
+  background-color: #cce4ff;
+}
+
+.date-cell.has-event::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: #464B50;
+  border-radius: 50%;
+}
+
+/* TODOコンテナ */
+.todo-container {
+  background: #FAEC7B;
+  color: #464B50;
+  border-radius: 15px;
+  padding: 15px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto 15px;
+  box-sizing: border-box;
+}
+
+.todo-title, .schedule-title {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.todo-input {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.todo-input-field {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.todo-name-field {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  width: 80px;
+  box-sizing: border-box;
+}
+
+.add-button {
+  background: #71c1f2;
+  color: #464B50;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.todo-checkbox {
+  margin-right: 10px;
+  border: 2px solid white;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.todo-checkbox.checked {
+  background-color: white;
+}
+
+.todo-item.checked .todo-text {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.todo-text {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.todo-name {
+  color: #464B50;
+  font-size: 12px;
+}
+
+/* スケジュールコンテナ */
+.schedule-container {
+  background: #b8cfff;
+  color: #464B50;
+  border-radius: 15px;
+  padding: 15px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+/* タイムライン */
+.timeline {
+  position: relative;
+  margin-top: 15px;
+  display: flex;
+}
+
+.time-labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 10px;
+  min-width: 40px;
+  font-size: 12px;
+}
+
+.schedule-content {
+  position: relative;
+  flex: 1;
+  min-height: 300px;
+  border-left: 2px solid white;
+}
+
+/* スケジュールイベント */
+.schedule-event {
+  position: absolute;
+  left: 5px;
+  background:#464B50;
+  color: #ccc;
+  padding: 3px;
+  border-radius: 5px;
+  width: calc(100% - 10px);
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 12px;
+  user-select: none;
+}
+
+.schedule-event:hover {
+  background: #464B50;
+}
+
+.schedule-event.editing {
+  cursor: pointer;
+  outline: 1px solid #464B50;
+}
+
+.schedule-event.editing:hover {
+  background: rgba(230, 243, 255, 1);
+}
+
+/* スケジュールフォーム */
+.schedule-form {
+  margin: 10px 0;
+  padding: 10px;
+  background: rgba(230, 243, 255, 0.1);
+  border-radius: 5px;
+  display: none; /* 初期状態は非表示 */
+}
+
+.schedule-form input {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.schedule-form input[type="time"] {
+  width: 100px;
+}
+
+.schedule-form input[type="number"] {
+  width: 80px;
+}
+
+.schedule-form input[type="text"] {
+  flex: 1;
+  min-width: 150px;
+
+}
+
+.schedule-form button,
+.add-schedule-btn {
+  background: #71c1f2;
+  color: #464b50;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.schedule-form button:hover,
+.add-schedule-btn:hover {
+  background: #D8f2f7;
+}
+
+
+
+
+.schedule-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+
+
+.schedule-form {
+  margin: 10px 0;
+  padding: 10px;
+  background: rgba(230, 243, 255, 0.1);
+  border-radius: 5px;
+  display: none; /* 初期状態は非表示 */
+}
+
+.schedule-form.visible {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+}
