@@ -58,6 +58,19 @@ body {
   padding: 0 5px;
 }
 
+.vote-button {
+  background: #71c1f2;
+ color: #464B50;
+ border: none;
+ padding: 15px 30px; /* 縦横の余白を増やす */
+ border-radius: 5px;
+ cursor: pointer;
+ font-size: 18px; /* フォントサイズを大きくする */
+ width: 500px; /* 横幅を固定 */
+ text-align: center; /* テキストを中央に配置 */
+
+}
+
 /* カレンダーコンテナ */
 .calendar-container {
   background: #D8f2f7;
@@ -224,6 +237,54 @@ body {
 .todo-name {
   color: #464B50;
   font-size: 12px;
+}
+/* 投票コンテナのスタイル */
+.voting-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px;
+  gap: 20px;
+}
+
+/* 投票ボタンのスタイル */
+.vote-button {
+  background: #71c1f2;
+  color: #464B50;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 360px; /* ボタンの幅を400pxに拡大 */
+  transition: background-color 0.2s;
+}
+
+.vote-button:hover {
+  background: #D8f2f7;
+}
+
+/* 日付入力欄のスタイル */
+.vote-date-input {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 200px;
+  background: white;
+  color: #464B50;
+}
+
+.vote-date-input:focus {
+  outline: 2px solid #71c1f2;
+}
+
+/* 日付入力コンテナのスタイル */
+.date-input-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* スケジュールコンテナ */

@@ -58,7 +58,35 @@ class TodoManager {
           todoItem.classList.toggle('checked');
       });
   }
+
 }
+// TodoManagerクラスに以下のメソッドを追加
+class TodoManager {
+    constructor() {
+      this.initializeTodo();
+      this.initializeVoting(); // 新しく追加
+    }
+  
+    // 投票機能の初期化
+    initializeVoting() {
+      const voteButton = document.querySelector('.vote-button');
+      const voteDateInput = document.getElementById('voteDate');
+  
+      // 現在の日付をデフォルト値として設定
+      const today = new Date().toISOString().split('T')[0];
+      voteDateInput.value = today;
+  
+      voteButton.addEventListener('click', () => {
+        const selectedDate = voteDateInput.value;
+        if (selectedDate) {
+          // ここに投票処理を追加
+          alert(`${selectedDate}に投票しました！`);
+        } else {
+          alert('日付を選択してください。');
+        }
+      });
+    }
+  }
 
 class ScheduleManager {
   constructor() {
