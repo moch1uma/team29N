@@ -5,6 +5,7 @@ body {
     padding: 0;
     text-align: center;
     background-color: #d8f2f7;
+    color: #464b50;
 }
 
 /* header */
@@ -85,12 +86,59 @@ header h1 {
 /* 機能セクション */
 .features {
     padding: 40px 30px;
-    background: linear-gradient(to bottom, #d8fef7, #ececec);;
+    background: #ffffff;
+    border: 1px solid #e0e0e0; /* 枠線を追加 */
+    border-radius: 10px; /* 角を丸くする */
+    box-shadow :0 0 0 10px linear-gradient(to bottom, #d8fef7, #ececec);
+    max-width: 1200px; /* 最大幅を設定 */
+    margin: 20px auto; /* 上下に余白を追加し、中央揃え */
     text-align: center;
 }
 
 .features h3 {
-    font-size: 50px;
+    font-size: 45px;
+}
+
+.highlight {
+    font-size: 1.5em; /* 文字サイズを変更 */
+    color: #71c1f2; /* 色を変更（例: オレンジ系） */
+    font-weight: bold; /* 太字にする */
+    margin-right: 5px; /* 文字と後続テキストの間に余白を追加 */
+}
+
+
+.home-screen {
+    display: flex; /* フレックスボックスで画像と文章を並べる */
+    align-items: center; /* 垂直方向のセンタリング */
+    justify-content: start; /* 左揃え */
+    margin-bottom: 20px; /* 下に少し余白を追加 */
+}
+
+.special-img {
+    flex: 0 0 40%; /* 画像の幅を40%に固定 */
+    max-width: 475px; /* 画像の最大幅を指定 */
+    height: auto; /* 縦横比を維持 */
+    margin-right: 20px; /* 右に余白を追加 */
+}
+
+.home-screen-text {
+    flex: 1; /* 文章部分が余ったスペースを使う */
+    text-align: left; /* 文章を左揃え */
+    padding-left: 20px;
+    padding-right: 60px;
+}
+
+.home-screen-text p {
+    font-size: 20px; /* タイトルのフォントサイズ */
+    margin-bottom: 10px; /* タイトル下の余白 */
+}
+
+.special-img {
+    flex: 0 0 10%;
+    width: 500px; /* 幅を特別に設定 */
+    height: auto; /* 高さは自動調整 */
+    margin: 20px; /* 必要に応じて余白も調整 */
+    padding-left: 60px;
 }
 
 .feature-box {
@@ -112,8 +160,8 @@ header h1 {
     flex: 0 0 20%; /* 画像を固定サイズに */
     border-radius: 10px;
     object-fit: cover;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 0 20px ;
+    margin: 0 10px ;
+    margin: 10px 10px 0;
     width: 300px; /* 幅を150pxに固定 */
     height: auto; /* 高さは自動調整 */
 
@@ -125,9 +173,7 @@ header h1 {
     text-align: left;
 }
 
-.feature-box:nth-child(even) {
-    flex-direction: row-reverse; /* 偶数番目は逆順 */
-}
+
 
 
 @media (max-width: 768px) {
@@ -145,10 +191,6 @@ header h1 {
     .feature-box .feature-text {
     margin: 0;
     }
-}
-
-.steps .step {
-    text-align: center;
 }
 
 .button-container {
