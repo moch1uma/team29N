@@ -1,0 +1,379 @@
+/* 全体的なスタイル */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #d8f2f7;
+}
+
+/* header */
+header {
+    background-image: url('S__37118017.jpg'); /* 画像のURLを指定 */
+    background-size: cover; /* 画像がヘッダー全体にフィット */
+    background-position: center; /* 画像を中央に配置 */
+    height: 300px; /* ヘッダーの高さ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* オーバーレイのために必要 */
+    color: white; /* テキストを白に */
+    font-family: "Times New Roman", generic-family;
+    font-size: 80px;
+}
+
+
+
+/* ヘッダー内のテキスト */
+header h1 {
+    position: relative; /* テキストをオーバーレイの上に配置 */
+    z-index: 2; /* テキストがオーバーレイの上に来るように */
+    font-size: 36px; /* フォントサイズを調整 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* テキストの視認性向上のための影 */
+}
+
+/* お勧めセクション */
+.recommend {
+    padding: 40px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.recommend h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.text-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    font-size: 18px;
+    align-items: stretch;
+    margin-top: 20px; /* 高さを揃えるために追加 */
+}
+
+.text-box {
+    background-color: white;
+    border: 1px solid #070707;
+    padding: 20px;
+    width: 45%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* 初期状態で非表示 */
+    transform: translateY(50px); /* 上から下へアニメーション */
+    transition: opacity 5s ease-out, transform 5s ease-out;
+}
+
+.text-box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.text-box p {
+    font-size: 14px;
+}
+
+/* 機能セクション */
+.features {
+    padding: 40px 30px;
+    background-color: #d8f2f7;
+    text-align: center;
+}
+
+.features h3 {
+    font-size: 24px;
+}
+
+.feature-box {
+    display: flex;
+    flex-wrap: wrap; /* 行を折り返す */
+    align-items: center;
+    justify-content: center; /* 水平方向中央揃え */
+    margin-bottom: 20px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 1150px; /* 最大幅を設定 */
+    margin-left: auto; /* 中央揃え */
+    margin-right: auto; /* 中央揃え */
+    font-size: 18px;
+}
+
+.feature-box img {
+    flex: 0 0 20%; /* 画像を固定サイズに */
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 20px ;
+    width: 300px; /* 幅を150pxに固定 */
+    height: auto; /* 高さは自動調整 */
+
+}
+
+.feature-box .feature-text {
+    flex: 1;
+    margin: 0;
+    text-align: left;
+}
+
+.feature-box:nth-child(even) {
+    flex-direction: row-reverse; /* 偶数番目は逆順 */
+}
+
+
+@media (max-width: 768px) {
+    .feature-box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .feature-box img {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .feature-box .feature-text {
+    margin: 0;
+    }
+}
+
+.steps .step {
+    text-align: center;
+}
+
+.button-container {
+    margin: 30px 0;
+}
+
+.try-button {
+    display: inline-block;
+    background-color: #71C1F2;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.try-button:hover {
+    background-color: #71C1F2;
+}
+
+
+/* セクション全体のスタイル */
+.how-to-use {
+    padding: 40px 140px;
+    background-color: #d8fef7;
+    text-align: center; 
+}
+
+/* タイトルのスタイル */
+.how-to-use h2 {
+    font-size: 2.5em; 
+    font-weight: bold; 
+    color: #464b50; /* 落ち着いた色合い */
+    margin-bottom: 30px; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* ソフトな影 */
+}
+
+/* スクロール用の親コンテナ */
+.steps {
+    display: flex; 
+    overflow-x: auto; 
+    gap: 30px; 
+    padding: 10px 0;
+    scroll-snap-type: x mandatory; 
+    -webkit-overflow-scrolling: touch; 
+}
+
+/* ステップカードのスタイル */
+.step {
+    flex: 0 0 auto; 
+    width: 450px;
+    height: 350PX; 
+    background: #ffffff; /* 白いカード */
+    border: 1px solid rgba(0, 0, 0, 0.1); 
+    border-radius: 15px; /* 角を丸く */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05); /* 立体感のある影 */
+    text-align: center; 
+    padding: 20px; 
+    scroll-snap-align: center; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* ホバー時のアニメーション */
+}
+
+
+/* ホバー時のアニメーション効果 */
+.step:hover {
+    transform: translateY(-10px); /* 浮き上がる */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* 影を強調 */
+}
+
+/* ステップ内のテキスト */
+.step p {
+    font-size: 2.0em; 
+    color: #464b50; 
+    margin-bottom: 15px; 
+    font-weight: 600; /* 太字で目立たせる */
+}
+
+/* ステップ内の画像 */
+.step img {
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 10px; /* 画像の角を丸く */
+    margin-bottom: 10px; /* 画像とテキストの間に余白 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影を追加 */
+    transition: transform 0.3s ease; /* アニメーション効果 */
+}
+
+/* 画像ホバー時のアニメーション */
+.step img:hover {
+    transform: scale(1.05); /* 少し拡大 */
+}
+
+/* スクロールバーのカスタマイズ */
+.steps::-webkit-scrollbar {
+    height: 8px; 
+}
+
+.steps::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05); /* スクロールバーの背景 */
+    border-radius: 10px;
+}
+
+.steps::-webkit-scrollbar-thumb {
+    background: rgba(44, 62, 80, 0.8); /* スクロールバーの色 */
+    border-radius: 10px;
+}
+
+.commitment {
+    padding: 50px;
+    background-color: #d8f2f7;
+}
+.commitment h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+.commitment ul {
+    list-style: none;
+    padding: 0;
+}
+.commitment ul li {
+    opacity: 0; /* 初期状態で非表示 */
+    transform: translateY(50px); /* 下から上に移動するアニメーション */
+    animation: fadeInUp 5s ease-out forwards; /* アニメーションを適用 */
+    animation-delay: var(--delay, 0s); /* 遅延を変数で制御 */
+    margin-bottom: 40px;
+}
+
+/* アニメーション定義 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* スクロール時にアニメーションをトリガー */
+.commitment ul li:nth-child(1) {
+    --delay: 0.2s;
+}
+.commitment ul li:nth-child(2) {
+    --delay: 0.4s;
+}
+
+.commitment ul li {
+    opacity: 0; /* 初期は非表示 */
+    transform: translateY(50px); /* 下から浮き上がる動き */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* スムーズな動き */
+}
+
+/* 表示時のスタイル */
+.commitment ul li.show {
+    opacity: 1;
+    transform: translateY(0); /* 元の位置に移動 */
+}
+
+/* セクション全体 */
+/* カード全体のスタイル */
+.cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* カード間の余白 */
+    flex-wrap: wrap; /* 必要に応じてカードが折り返される */
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+/* タイトル */
+.commitment-title {
+    font-size: 18px; /* タイトルのサイズを少し小さく */
+    color: #464b50;
+    margin: 0 auto 20px;
+    text-align: center;
+    display: inline-block;
+}
+
+/* カードの親要素 */
+.cardtachi {
+    display: flex; /* 横並びにする */
+    justify-content: space-between; /* カード間のスペースを均等に */
+    gap: 20px; /* カード間に20pxの余白 */
+}
+
+/* カードのスタイル */
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd; /* 枠線を薄くして目立たないように */
+    border-radius: 8px; /* 角を丸くする */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 軽いシャドウ */
+    padding: 15px; /* 余白を少し小さく */
+    width: 30%; /* カードの幅を30%にして3つ並べる */
+    text-align: center;
+    font-size: 18px; /* 文字サイズを小さくして、バランスよく */
+    margin-bottom: 20px; /* 下に余白を追加 */
+}
+
+/* カード内の見出し */
+.card h3 {
+    font-size: 20px; /* 見出しの文字サイズを少し小さく */
+    color: #464b50;
+    margin-bottom: 15px; /* 見出しの下に余白 */
+}
+
+/* カード内の段落 */
+.card p {
+    font-size: 0.9em; /* 段落の文字サイズをさらに小さく */
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 0; /* 段落の下の余白を少なく */
+}
+/* カードのホバー効果 */
+.card:hover {
+    transform: translateY(-10px); /* 少し浮き上がる */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* シャドウを強調 */
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 768px) {
+    .cards {
+        grid-template-columns: 1fr; /* スマホでは1列表示 */
+    }
+}
+
+.text-box.show,
+.feature-box.show {
+    opacity: 1; /* 完全に不透明 */
+    transform: translateY(0); /* 元の位置に戻る */
+}
+
