@@ -84,43 +84,67 @@ header h1 {
 
 /* 機能セクション */
 .features {
-    padding: 40px 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding: 40px 30px;
+    background: linear-gradient(to bottom, #d8fef7, #ececec);;
+    text-align: center;
 }
 
-.features h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.feature-boxes {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 20px;
+.features h3 {
+    font-size: 50px;
 }
 
 .feature-box {
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 20px;
-    width: 45%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap; /* 行を折り返す */
+    align-items: center;
+    justify-content: center; /* 水平方向中央揃え */
     margin-bottom: 20px;
-    opacity: 1; /* 初期状態で非表示 */
-    transform: translateY(50px); /* 上から下へアニメーション */
-    transition: opacity 1s ease-out, transform 1s ease-out;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 1150px; /* 最大幅を設定 */
+    margin-left: auto; /* 中央揃え */
+    margin-right: auto; /* 中央揃え */
 }
 
-.feature-box h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
+.feature-box img {
+    flex: 0 0 20%; /* 画像を固定サイズに */
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 20px ;
+    width: 300px; /* 幅を150pxに固定 */
+    height: auto; /* 高さは自動調整 */
+
 }
 
-.feature-box p {
-    font-size: 14px;
+.feature-box .feature-text {
+    flex: 1;
+    margin: 0;
+    text-align: left;
+}
+
+.feature-box:nth-child(even) {
+    flex-direction: row-reverse; /* 偶数番目は逆順 */
+}
+
+
+@media (max-width: 768px) {
+    .feature-box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .feature-box img {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .feature-box .feature-text {
+    margin: 0;
+    }
 }
 
 .steps .step {
